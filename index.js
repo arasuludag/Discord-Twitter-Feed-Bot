@@ -3,16 +3,9 @@ const { Client, Intents } = require("discord.js");
 const { twitterStream } = require("./twitterStream");
 
 const myIntents = new Intents();
-myIntents.add(
-  Intents.FLAGS.GUILDS,
-  Intents.FLAGS.GUILD_MESSAGES,
-  Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-  Intents.FLAGS.GUILD_MEMBERS,
-  Intents.FLAGS.GUILD_PRESENCES
-);
+myIntents.add(Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS);
 const client = new Client({
   intents: myIntents,
-  partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 
 // When we are ready, emit this.
